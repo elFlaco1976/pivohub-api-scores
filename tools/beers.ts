@@ -22,7 +22,7 @@ export class Beer {
   imageUrl: string = '';
   label: BeerLabel = new BeerLabel();
   createdAt: Date = new Date();
-  score?: string = '';
+  score?: number = 0;
 };
 
 export const getBeers = (): Beer[] => {
@@ -32,7 +32,7 @@ export const getBeers = (): Beer[] => {
   beersJson.forEach((beerJson) => {
     let beerParsed = new Beer();
     Object.assign(beerParsed, beerJson);
-    beerParsed.score = (Math.random() * 10).toFixed(1);
+    beerParsed.score = parseFloat((Math.random() * 10).toFixed(1));
     beersParsed.push(beerParsed);
   });
 
